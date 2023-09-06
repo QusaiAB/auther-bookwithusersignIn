@@ -1,0 +1,28 @@
+﻿@model IEnumerable<UserViewModel>
+@{ViewData["Titel"] = "Users"; }
+
+<h1> Users</h1>
+
+<table class="table table-striped mt-4"  >
+    <thead>
+        <tr class="bg-primary text-white">
+            <th> Email</th>
+           
+            <th> Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var user in Model)
+            {
+        <tr>
+            <td>
+                @user.Email
+            </td>
+            
+            <td>
+               <a class="btn btn-danger" asp-controller="Users"  asp-action="Delete" asp-route-userid="@user.Id" >Delete </a> 
+            </td>
+        </tr>
+            }
+    </tbody>
+</table>

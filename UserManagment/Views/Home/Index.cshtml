@@ -1,0 +1,61 @@
+﻿
+@model IEnumerable<UserManagment.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+<table class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Titel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.auther.FullName)
+            </th>
+            <th>
+                Image
+            </th>
+
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.auther.FullName)
+                </td>
+                <td>
+                    @if (item.UrlImage != null)
+                    {
+                        <img src="~/UpLoads/@item.UrlImage" style="width:64px" class="img-thumbnail" />
+                    }
+
+                </td>
+              
+            </tr>
+        }
+    </tbody>
+</table>
